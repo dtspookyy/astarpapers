@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="Past Paper Website" />
+    <link
+      rel="icon"
+      href="/assets/pngtree-vector-notes-icon-png-image_992313.jpg"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Revision</title>
+  </head>
+
+  <body>
+    <h1>Welcome👋</h1>
+
+    <div>
+      <form id="subjectForm" action="/assets/maths.html" method="post">
+        <fieldset id="subjects">
+          <legend>Select a subject:</legend>
+          <p>
+            <select name="subject" id="subject">
+              <option value="maths">Mathematics</option>
+              <option value="fm">Further Mathematics</option>
+              <option value="cs">Computer Science</option>
+              <option value="econ">Economics</option>
+            </select>
+          </p>
+        </fieldset>
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div class="emojiContainer">
+      <div id="bookEmojiImage">
+        <img
+          src="/assets/books-emoji-2048x2048-dyidymsy.png"
+          alt="bookEmojiImage"
+          title="Book Emoji"
+          width="500"
+          height="500"
+        />
+      </div>
+      <div id="calculatorEmojiImage">
+        <img
+          src="/assets/6394673.png"
+          alt="Calculator Image"
+          title="Calculator Emoji"
+          width="500"
+          height="500"
+        />
+      </div>
+      <div id="chemistryEmojiImage">
+        <img
+          src="/assets/2219150.png"
+          alt="Chemistry Image"
+          title="Chemistry Emoji"
+          width="500"
+          height="500"
+        />
+      </div>
+    </div>
+
+    <br /><br /><br /><br /><br />
+    <hr />
+    <footer>
+      <div id="contact">
+        <form
+          id="contactForm"
+          action="https://httpbin.org/get"
+          method="get"
+        ></form>
+        <p>
+          <label for="firstName">First Name:</label>
+          <input
+            type="text"
+            name="firstName"
+            id="firstName"
+            autocomplete="on"
+          />
+        </p>
+        <p>
+          <label for="lastName">Last Name:</label>
+          <input type="text" name="lastName" id="lastName" autocomplete="on" />
+        </p>
+        <p>
+          <label for="phone">Phone Number:</label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            pattern="[0-9]{3}[0-9]{6}"
+          />
+        </p>
+        <p>
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" name="email" />
+        </p>
+        <label for="message">Message:</label>
+        <br />
+        <textarea
+          name="message"
+          id="message"
+          cols="30"
+          rows="10"
+          placeholder="Type your message here"
+        ></textarea>
+        <button>Send</button>
+      </div>
+      <br />
+      <div id="copyright">&lt;&lt;&lt; &copy; Mika Turkie &gt;&gt;&gt;</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
