@@ -10,13 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   let savedScores = JSON.parse(localStorage.getItem("examScores")) || {
-    2023: { 1: 0, 2: 0 },
-    2022: { 1: 0, 2: 0 },
-    2021: { 1: 0, 2: 0 },
-    2020: { 1: 0, 2: 0 },
-    2019: { 1: 0, 2: 0 },
-    2018: { 1: 0, 2: 0 },
-    2017: { 1: 0, 2: 0 },
+    2023: { 1: null, 2: null },
+    2022: { 1: null, 2: null },
+    2021: { 1: null, 2: null },
+    2020: { 1: null, 2: null },
+    2019: { 1: null, 2: null },
+    2018: { 1: null, 2: null },
+    2017: { 1: null, 2: null },
   };
 
   let savedTopics = JSON.parse(localStorage.getItem("topics")) || [];
@@ -28,12 +28,30 @@ document.addEventListener("DOMContentLoaded", () => {
       const paper = input.dataset.paper;
       const savedValue = savedScores[year][paper];
 
-      if (savedValue !== undefined) {
+      if (savedValue !== null) {
         input.value = savedValue;
         updateColor(input, savedValue);
+      } else {
+        input.value = "";
       }
 
       input.addEventListener("input", function () {
+        let value = parseInt(this.value) || 0;
+        if (value > 140) {
+          value = 140;
+          this.value = 140;
+        }
+        savedScores[year][paper] = value;
+        localStorage.setItem("examScores", JSON.stringify(savedScores));
+        updateColor(this, value);
+        calculateAverages();
+        calculateGrades();
+      });
+
+      input.addEventListener("input", function () {
+        // Limit input to 3 digits
+        this.value = this.value.slice(0, 3);
+        // Call the existing input handler
         let value = parseInt(this.value) || 0;
         if (value > 140) {
           value = 140;
@@ -63,7 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const topicText = topicInput.value.trim();
 
       if (topicText === "") {
-        alert("Please enter a topic.");
+        const alertBox = document.getElementById("topicAlert");
+        alertBox.style.display = "flex";
         return;
       }
 
@@ -78,76 +97,71 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function resetData() {
-    if (
-      confirm(
-        "Are you sure you want to reset all data? This action cannot be undone.",
-      )
-    ) {
-      savedScores = {
-        2023: { 1: 0, 2: 0 },
-        2022: { 1: 0, 2: 0 },
-        2021: { 1: 0, 2: 0 },
-        2020: { 1: 0, 2: 0 },
-        2019: { 1: 0, 2: 0 },
-        2018: { 1: 0, 2: 0 },
-        2017: { 1: 0, 2: 0 },
-      };
-      localStorage.setItem("examScores", JSON.stringify(savedScores));
+    const savedScores = {
+      2023: { 1: null, 2: null },
+      2022: { 1: null, 2: null },
+      2021: { 1: null, 2: null },
+      2020: { 1: null, 2: null },
+      2019: { 1: null, 2: null },
+      2018: { 1: null, 2: null },
+      2017: { 1: null, 2: null },
+    };
+    localStorage.setItem("examScores", JSON.stringify(savedScores));
 
-      savedTopics = [];
-      localStorage.setItem("topics", JSON.stringify(savedTopics));
+    const savedTopics = [];
+    localStorage.setItem("topics", JSON.stringify(savedTopics));
 
-      const inputs = document.querySelectorAll(".score");
-      inputs.forEach((input) => {
-        input.value = "";
-        input.className = "score";
-      });
+    const inputs = document.querySelectorAll(".score");
+    inputs.forEach((input) => {
+      input.value = "";
+      input.className = "score";
+    });
 
-      const topicList = document.getElementById("topicList");
-      topicList.innerHTML = "";
+    const topicList = document.getElementById("topicList");
+    topicList.innerHTML = "";
 
-      initializeScores();
-      initializeTopics();
+    initializeScores();
+    initializeTopics();
 
-      calculateAverages();
-      calculateGrades();
-
-      alert("Data has been reset.");
-    }
+    calculateAverages();
+    calculateGrades();
   }
-
-  calculateAverages();
-  calculateGrades();
-  initializeScores();
-  initializeTopics();
-
-  const resetButton = document.getElementById("resetButton");
-  resetButton.addEventListener("click", resetData);
 
   function updateColor(input, value) {
     value = parseInt(value);
-    if (value >= 120) {
-      input.className = "score green";
-    } else if (value >= 100) {
+    if (value >= 105) {
+      input.className = "score darkGreen";
+    } else if (value >= 90) {
+      input.className = "score lightGreen";
+    } else if (value >= 75) {
       input.className = "score yellow";
+    } else if (value >= 60) {
+      input.className = "score lightOrange";
+    } else if (value >= 45) {
+      input.className = "score darkOrange";
+    } else if (value >= 30) {
+      input.className = "score lightRed";
     } else {
-      input.className = "score red";
+      input.className = "score darkRed";
     }
   }
 
   function calculateAverages() {
     const rows = document.querySelectorAll("tr[data-paper]");
+    let hasInput = false;
     rows.forEach((row) => {
       let sum = 0;
       let count = 0;
       const inputs = row.querySelectorAll(".score");
       inputs.forEach((input) => {
         const value = parseInt(input.value) || 0;
+        if (value > 0) hasInput = true;
         sum += value;
         count++;
       });
       const average = count > 0 ? Math.round(sum / count) : 0;
-      row.querySelector(".average").textContent = average;
+      const averageCell = row.querySelector(".average");
+      averageCell.textContent = hasInput ? average : "";
     });
     calculateAverageGrade();
   }
@@ -155,13 +169,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function calculateGrades() {
     const years = ["2023", "2022", "2021", "2020", "2019", "2018", "2017"];
     years.forEach((year) => {
-      const paper1Score = savedScores[year]["1"];
-      const paper2Score = savedScores[year]["2"];
+      const paper1Score = savedScores[year]["1"] || 0;
+      const paper2Score = savedScores[year]["2"] || 0;
       const totalScore = paper1Score + paper2Score;
       const gradeCell = document.querySelector(`.grade[data-year="${year}"]`);
 
       const boundaries = gradeBoundaries[year];
-      let grade = "U";
+      let grade = "";
       if (totalScore >= boundaries["a*"]) {
         grade = "A*";
       } else if (totalScore >= boundaries["a"]) {
@@ -174,6 +188,8 @@ document.addEventListener("DOMContentLoaded", () => {
         grade = "D";
       } else if (totalScore >= boundaries["e"]) {
         grade = "E";
+      } else if (totalScore > 0) {
+        grade = "U";
       }
 
       gradeCell.textContent = grade;
@@ -201,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
       u: 0,
     };
 
-    let avgGrade = "U";
+    let avgGrade = "";
     if (totalAvgScore >= avgBoundaries["a*"]) {
       avgGrade = "A*";
     } else if (totalAvgScore >= avgBoundaries["a"]) {
@@ -214,6 +230,8 @@ document.addEventListener("DOMContentLoaded", () => {
       avgGrade = "D";
     } else if (totalAvgScore >= avgBoundaries["e"]) {
       avgGrade = "E";
+    } else if (totalAvgScore > 0) {
+      avgGrade = "U";
     }
 
     document.querySelector(".average-grade").textContent = avgGrade;
@@ -243,4 +261,54 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     localStorage.setItem("topics", JSON.stringify(savedTopics));
   }
+
+  initializeScores();
+  initializeTopics();
+  calculateAverages();
+  calculateGrades();
+
+  document.getElementById('resetDataButton').addEventListener('click', function() {
+    showresetConfirm();
+  });
+
+  document.getElementById('confirmYes').addEventListener('click', function() {
+    hideresetConfirm();
+    resetData();
+  });
+
+  document.getElementById('confirmNo').addEventListener('click', function() {
+    hideresetConfirm();
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('.top-nav a');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.forEach(navLink => navLink.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+});
+
+function toggleDropdown() {
+  const changeSubject = document.querySelector('.changeSubjectContent');
+  changeSubject.classList.toggle('active');
+}
+
+function showresetConfirm() {
+  document.getElementById('resetConfirm').style.display = 'flex';
+}
+
+function hideresetConfirm() {
+  document.getElementById("resetConfirm").style.display = 'none';
+}
+
+function hideTopicConfirm() {
+  document.getElementById('topicAlert').style.display = 'none';
+}
+
+document.getElementById('confirmClose').addEventListener('click', function() {
+  hideTopicConfirm();
 });

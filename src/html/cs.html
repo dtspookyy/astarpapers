@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="Computer Science"/>
+    <link rel="stylesheet" href="../styles/cs.css"/>
+    <link rel="icon" href="/assets/logos/astarpaperlogofinal.png"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Computer Science</title>
+  </head>
+  <body>
+    <nav class="topNav">
+      <div class="topNavContainer">
+        <a href="home.html"><img src="/assets/logos/astarpaperlogofinal.png" alt="astarpaperlogo" width="85px"></a>
+        <ul>
+          <li><a href="home.html" class="active">Home</a></li>
+          <li><a href="alevel.html">A-Level</a></li>
+          <li><a href="as.html">AS</a></li>
+        </ul>
+        <button id="resetDataButton">Reset All Data</button>
+      </div>
+    </nav>
+    <div id="resetConfirm" class="confirmOverlay">
+      <div class="confirmOverlayContent">
+        <div class="confirmOverlayContentTitle">RESET ALL DATA</div>
+        <p>Are you sure you want to proceed? <br> This will permanently delete any data you have input, across all
+          subjects. <br> (Note: You may have to refresh)</p>
+        <button id="confirmYes">Confirm</button>
+        <button id="confirmNo">Cancel</button>
+      </div>
+    </div>
+    <div class="container">
+      <nav class="sidebar">
+        <ul>
+          <li class="changeSubject">
+            <div class="changeSubjectTitle">Computer Science</div>
+            <div class="changeSubjectContent">
+              <a href="#" id="changeSubjectContentLink" onclick="toggleDropdown()">Change Subject &#9662;</a>
+              <ul class="dropdownMenu">
+                <li><a href="fm.html">Further Mathematics</a></li>
+                <li><a href="maths.html">Mathematics</a></li>
+                <li><a href="econ.html">Economics</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="#2023">2023</a></li>
+          <li><a href="#2022">2022</a></li>
+          <li><a href="#2021">2021</a></li>
+          <li><a href="#2020">2020</a></li>
+          <li><a href="#2019">2019</a></li>
+          <li><a href="#2018">2018</a></li>
+          <li><a href="#2017">2017</a></li>
+          <li><a href="#Specimen">Specimen</a></li>
+        </ul>
+      </nav>
+      <div class="content">
+        <ul class="breadcrumb">
+          <li><a href="home.html">Home</a></li>
+          <li>Computer Science</li>
+        </ul>
+        <h1 id="mainHeader">Past Exam Papers</h1>
+        <p>Linked below is every single past paper for OCR A Level Computer Science along with their respective Mark Schemes. <br> Testing yourself with these papers and keeping track of your progress below is an excellent way to figure out your weaknesses in preparation for your exam.</p>
+        <table>
+          <tr class="paperTableHeaders tableAlignLeft">
+            <th>Exam Papers</th>
+            <th>Mark Schemes</th>
+          </tr>
+          <tr id="2023" class="year">
+            <td><h3>2023</h3></td>
+          </tr>
+          <tr class="paperLink">
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/703780-question-paper-computer-systems.pdf">June 2023 Paper 1 (Computer Systems) (QP)</a></td>
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/703953-mark-scheme-computer-systems.pdf">June 2023 Paper 1 (Computer Systems) (MS)</a></td>
+          </tr>
+          <tr class="paperLink">
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/703781-question-paper-algorithms-and-programming.pdf">June 2023 Paper 2 (Algorithms and Programming) (QP)</a></td>
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/703954-mark-scheme-algorithms-and-programming.pdf">June 2023 Paper 2 (Algorithms and Programming) (MS)</a></td>
+          </tr>
+          <tr id="2022" class="year">
+            <td><h3>2022</h3></td>
+          </tr>
+          <tr class="paperLink">
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/676742-question-paper-computer-systems.pdf">June 2022 Paper 1 (Computer Systems) (QP)</a></td>
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/676943-mark-scheme-computer-systems.pdf">June 2022 Paper 1 (Computer Systems) (MS)</a></td>
+          </tr>
+          <tr class="paperLink">
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/676743-question-paper-algorithms-and-programming.pdf">June 2022 Paper 2 (Algorithms and Programming) (QP)</a></td>
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/676944-mark-scheme-algorithms-and-programming.pdf">June 2022 Paper 2 (Algorithms and Programming) (MS)</a></td>
+          </tr>
+          <tr id="2021" class="year">
+            <td><h3>2021</h3></td>
+          </tr>
+          <tr class="paperLink">
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/666846-question-paper-computer-systems.pdf">June 2021 Paper 1 (Computer Systems) (QP)</a></td>
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/666849-mark-scheme-computer-systems.pdf">June 2021 Paper 1 (Computer Systems) (MS)</a></td>
+          </tr>
+          <tr class="paperLink">
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/666847-question-paper-algorithms-and-programming.pdf">June 2021 Paper 2 (Algorithms and Programming) (QP)</a></td>
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/666850-mark-scheme-algorithms-and-programming.pdf">June 2021 Paper 2 (Algorithms and Programming) (MS)</a></td>
+          </tr>
+          <tr id="2020" class="year">
+            <td><h3>2020</h3></td>
+          </tr>
+          <tr class="paperLink">
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/642804-question-paper-computer-systems.pdf">June 2020 Paper 1 (Computer Systems) (QP)</a></td>
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/642807-mark-scheme-computer-systems.pdf">June 2020 Paper 1 (Computer Systems) (MS)</a></td>
+          </tr>
+          <tr class="paperLink">
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/642805-question-paper-algorithms-and-programming.pdf">June 2020 Paper 2 (Algorithms and Programming) (QP)</a></td>
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/642808-mark-scheme-algorithms-and-programming.pdf">June 2020 Paper 2 (Algorithms and Programming) (MS)</a></td>
+          </tr>
+          <tr id="2019" class="year">
+            <td><h3>2019</h3></td>
+          </tr>
+          <tr class="paperLink">
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/621076-question-paper-computer-systems.pdf">June 2019 Paper 1 (Computer Systems) (QP)</a></td>
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/621302-mark-scheme-computer-systems.pdf">June 2019 Paper 1 (Computer Systems) (MS)</a></td>
+          </tr>
+          <tr class="paperLink">
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/621077-question-paper-algorithms-and-programming.pdf">June 2019 Paper 2 (Algorithms and Programming) (QP)</a></td>
+            <td><a target="_blank" href="https://www.ocr.org.uk/Images/621303-mark-scheme-algorithms-and-programming.pdf">June 2019 Paper 2 (Algorithms and Programming) (MS)</a></td>
+          </tr>
+          <tr id="2018" class="year">
+            <td><h3>2018</h3></td>
+          </tr>
+          <tr class="paperLink">
+            <td><a target="_blank" href="/assets/cspapers/paper12018.pdf">June 2018 Paper 1 (Computer Systems) (QP)</a></td>
+            <td><a target="_blank" href="/assets/cspapers/paper12018ms.pdf">June 2018 Paper 1 (Computer Systems) (MS)</a></td>
+          </tr>
+          <tr class="paperLink">
+            <td><a target="_blank" href="/assets/cspapers/paper22018.pdf">June 2018 Paper 2 (Algorithms and Programming) (QP)</a></td>
+            <td><a target="_blank" href="/assets/cspapers/paper22018ms.pdf">June 2018 Paper 2 (Algorithms and Programming) (MS)</a></td>
+          </tr>
+          <tr id="2017" class="year">
+            <td><h3>2017</h3></td>
+          </tr>
+          <tr class="paperLink">
+            <td><a target="_blank" href="/assets/cspapers/paper12017.pdf">June 2017 Paper 1 (Computer Systems) (QP)</a></td>
+            <td><a target="_blank" href="/assets/cspapers/paper12017ms.pdf">June 2017 Paper 1 (Computer Systems) (MS)</a></td>
+          </tr>
+          <tr class="paperLink">
+            <td><a target="_blank" href="/assets/cspapers/paper22017.pdf">June 2017 Paper 2 (Algorithms and Programming) (QP)</a></td>
+            <td><a target="_blank" href="/assets/cspapers/paper22017ms.pdf">June 2017 Paper 2 (Algorithms and Programming) (MS)</a></td>
+          </tr>
+          <tr id="Specimen" class="year">
+            <td><h3>Specimen</h3></td>
+          </tr>
+          <tr class="paperLink">
+            <td><a target="_blank" href="https://www.ocr.org.uk/images/170852-unit-h446-1-computer-systems-sample-assessment-materials.pdf">Specimen Paper 1 (Computer Systems) (QP + MS)</a></td></tr>
+          <tr class="paperLink">
+            <td><a target="_blank" href="https://www.ocr.org.uk/images/170853-unit-h446-2-algorithms-and-programming-sample-assessment-materials.pdf">Specimen Paper 2 (Algorithms and Programming) (QP + MS)</a></td>
+          </tr>
+        </table>
+        <br><br><br>
+        <div class="horizontalLine"></div>
+        <br />
+        <div class="alignLeftContainer">
+          <h2 class="h2Headers">Progress Tracking</h2>
+          <p>Insert your scores into the table and automatically have your grade calculated, using the grade boundaries specific to each year! <br> The table will also calculate an average grade and score, based on the mean of scores from all years. The colours you see are based on the score you achieved in that paper.</p>
+          <table class="progressTable">
+            <tr>
+              <th>Paper</th>
+              <th>2023</th>
+              <th>2022</th>
+              <th>2021</th>
+              <th>2020</th>
+              <th>2019</th>
+              <th>2018</th>
+              <th>2017</th>
+              <th>Average</th>
+            </tr>
+            <tr data-paper="1">
+              <td>01</td>
+              <td><input type="number" class="score" data-max="140" data-year="2023" data-paper="1" /></td>
+              <td><input type="number" class="score" data-max="140" data-year="2022" data-paper="1" /></td>
+              <td><input type="number" class="score" data-max="140" data-year="2021" data-paper="1" /></td>
+              <td><input type="number" class="score" data-max="140" data-year="2020" data-paper="1" /></td>
+              <td><input type="number" class="score" data-max="140" data-year="2019" data-paper="1" /></td>
+              <td><input type="number" class="score" data-max="140" data-year="2018" data-paper="1" /></td>
+              <td><input type="number" class="score" data-max="140" data-year="2017" data-paper="1" /></td>
+              <td class="average"></td>
+            </tr>
+            <tr data-paper="2">
+              <td>02</td>
+              <td><input type="number" class="score" data-max="140" data-year="2023" data-paper="2" /></td>
+              <td><input type="number" class="score" data-max="140" data-year="2022" data-paper="2" /></td>
+              <td><input type="number" class="score" data-max="140" data-year="2021" data-paper="2" /></td>
+              <td><input type="number" class="score" data-max="140" data-year="2020" data-paper="2" /></td>
+              <td><input type="number" class="score" data-max="140" data-year="2019" data-paper="2" /></td>
+              <td><input type="number" class="score" data-max="140" data-year="2018" data-paper="2" /></td>
+              <td><input type="number" class="score" data-max="140" data-year="2017" data-paper="2" /></td>
+              <td class="average"></td>
+            </tr>
+            <tr>
+              <td>Grade</td>
+              <td class="grade" data-year="2023"></td>
+              <td class="grade" data-year="2022"></td>
+              <td class="grade" data-year="2021"></td>
+              <td class="grade" data-year="2020"></td>
+              <td class="grade" data-year="2019"></td>
+              <td class="grade" data-year="2018"></td>
+              <td class="grade" data-year="2017"></td>
+              <td class="average-grade"></td>
+            </tr>
+          </table>
+          <br>
+          <h2 class="h2Headers">Topics for Improvement</h2>
+          <p>Enter any topics that you got wrong into the text box below to add them to a list for you to review later. <br> Click on them in the list to highlight them once you have reviewed and perfected them!</p>
+          <form id="topics"><input type="text" id="topicInput" name="topic" placeholder="Add your topics" /></form>
+          <ul id="topicList"></ul>
+          <div id="topicAlert" class="confirmOverlay">
+            <div class="confirmOverlayContent">
+              <p>Please enter a topic.</p>
+              <button id="confirmClose">Close</button>
+            </div>
+          </div>
+          <h2 class="h2Headers">Grade Boundaries</h2>
+          Click below to see the grade boundaries for each year.
+          <br><br>
+          COMING SOON
+        </div>
+      </div>
+    </div>
+    <script src="../scripts/cs.js"></script>
+  </body>
+</html>
